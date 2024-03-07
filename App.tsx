@@ -1,9 +1,12 @@
-import Home from '@/screens/Home'
+import Home from '@/Screens/Home'
+import { MainTemplate } from '@/Templates'
 
 export default function App() {
   return (
     <>
-      <Home />
+      <MainTemplate>
+        <Home />
+      </MainTemplate>
     </>
   )
 }

@@ -1,21 +1,24 @@
-import { StatusBar } from 'expo-status-bar'
-import { useColorScheme } from 'nativewind'
+import React from 'react'
+
 import { Button, Text, View } from 'react-native'
+import { useColorScheme } from 'nativewind'
+import { StatusBar } from 'expo-status-bar'
 
 export default function Home() {
   const { toggleColorScheme, colorScheme } = useColorScheme()
-
-  console.log(`colorScheme`, colorScheme)
   return (
     <View
-      className={`bg-black dark:bg-white flex-1 justify-center items-center`}
+      className={`bg-light flex-1 justify-center items-center dark:bg-dark`}
     >
       <StatusBar style="auto" />
-      <View>
-        <Text className={`text-white dark:text-black`}>
-          Welcome to Nativewind
+      <View className="flex flex-row gap-2">
+        <Text
+          selectable={false}
+          onPress={toggleColorScheme}
+          className="dark:text-white mr-2"
+        >
+          {`Try clicking me! ${colorScheme === 'dark' ? '🌙' : '🌞'}`}
         </Text>
-        <Button onPress={toggleColorScheme} title="Change Theme" />
       </View>
     </View>
   )
